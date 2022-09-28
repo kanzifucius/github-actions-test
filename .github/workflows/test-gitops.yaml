@@ -18,4 +18,6 @@ jobs:
           repository: "dailymotion-oss/octopilot"
           tag: " v1.1.4"
           fileName: "octopilot_1.1.4_linux_amd64"
-
+      - name: run octopilot
+        run: octopilot_1.1.4_linux_amd64
+          
