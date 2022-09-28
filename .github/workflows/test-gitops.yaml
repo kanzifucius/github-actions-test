@@ -12,12 +12,23 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-
-      - uses: robinraju/release-downloader@v1.5
+      - uses: engineerd/configurator@v0.0.8
         with:
-          repository: "dailymotion-oss/octopilot"
-          tag: " v1.1.4"
-          fileName: "octopilot_1.1.4_linux_amd64"
-      - name: run octopilot
-        run: octopilot_1.1.4_linux_amd64
+          name: octopilot
+          fromGitHubReleases: "true"
+          repo: "dailymotion-oss/octopilot"
+          version: "v1.1.4"
+          urlTemplate: "https://github.com/dailymotion-oss/octopilot/releases/download/{{version}}/octopilot_1.1.4_linux_amd64"
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Testing
+        run: |
+          octopilot --help
+#       - uses: robinraju/release-downloader@v1.5
+#         with:
+#           repository: "dailymotion-oss/octopilot"
+#           tag: " v1.1.4"
+#           fileName: "octopilot_1.1.4_linux_amd64"
+#       - name: run octopilot
+#         run: octopilot_1.1.4_linux_amd64
           
