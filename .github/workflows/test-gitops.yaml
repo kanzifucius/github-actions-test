@@ -1,0 +1,20 @@
+name: Main-Test-GitOps
+on:
+  workflow_dispatch:
+
+jobs:
+  build-deploy:
+    name: Main-Build-GitOps
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Install octopilot
+        uses: jaxxstorm/action-install-gh-release@v1.5.0
+        with: # Grab a specific platform and/or architecture
+          repo: dailymotion-oss/octopilot
+
