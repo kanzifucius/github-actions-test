@@ -29,6 +29,7 @@ jobs:
           # 'changed' output will true. Enter multiple paths separated by spaces.
           # If true, the body of commits will also be searched for major/minor patterns to determine the version type.
           search_commit_body: true
+          namespace: novata-slack-bolt-app
           # The output method used to generate list of users, 'csv' or 'json'.
     
       - uses: engineerd/configurator@v0.0.8
@@ -42,8 +43,8 @@ jobs:
 
       - name: Testing
         env:
-          TAG: ${{ steps.version.outputs.version_tag }}
-          VERSION_TAG: ${{ steps.version.outputs.version}}
+          VERSION_TAG: ${{ steps.version.outputs.version_tag }}
+          VERSION: ${{ steps.version.outputs.version}}
         run: |
          echo steps.version.outputs.version_tag  $TAG
          echo steps.version.outputs.version $VERSION
