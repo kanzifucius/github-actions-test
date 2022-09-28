@@ -14,6 +14,8 @@ jobs:
           fetch-depth: 0
 
       - name: Install octopilot
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Github token scoped to job
         uses: jaxxstorm/action-install-gh-release@v1.5.0
         with: # Grab a specific platform and/or architecture
           repo: dailymotion-oss/octopilot
