@@ -46,7 +46,7 @@ jobs:
           VERSION_TAG: ${{ steps.version.outputs.version_tag }}
           VERSION: ${{ steps.version.outputs.version}}
         run: |
-         echo steps.version.outputs.version_tag  $TAG
+         echo steps.version.outputs.version_tag  $VERSION_TAG
          echo steps.version.outputs.version $VERSION
 #       - uses: robinraju/release-downloader@v1.5
 #         with:
